@@ -1,10 +1,19 @@
 import React from "react";
 
-function ScoreCard({score}) {
+function ScoreCard({score, restart }) {
     return (
-        <div className="score-card">
-            <h2 className="your-score">Your Score: </h2>
-            <button className="btn-play">Play</button>
+        <div className="score-board">
+            {score === 5 || score === 4 ? (
+            <h1 className="result">Amazing!</h1>
+            ) : score === 3 ? (
+            <h1 className="result">Hmm...not bad!</h1>
+            ) : (
+            <h1 className="result">You can do better.</h1>
+            )}
+            <h1 className="your-score">Your Score is: {score} / 5</h1>
+                <button className="btn-play" onClick={restart}>
+                    Play Again?
+                </button>
         </div>
     )
 }
